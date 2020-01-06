@@ -5,20 +5,29 @@
 
 using namespace Rcpp;
 
-// timesTwo
-NumericVector timesTwo(NumericVector x);
-RcppExport SEXP _zrtrading_timesTwo(SEXP xSEXP) {
+// test
+void test();
+RcppExport SEXP _zrtrading_test() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    test();
+    return R_NilValue;
+END_RCPP
+}
+// simulate_student
+std::vector<int> simulate_student();
+RcppExport SEXP _zrtrading_simulate_student() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(timesTwo(x));
+    rcpp_result_gen = Rcpp::wrap(simulate_student());
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_zrtrading_timesTwo", (DL_FUNC) &_zrtrading_timesTwo, 1},
+    {"_zrtrading_test", (DL_FUNC) &_zrtrading_test, 0},
+    {"_zrtrading_simulate_student", (DL_FUNC) &_zrtrading_simulate_student, 0},
     {NULL, NULL, 0}
 };
 

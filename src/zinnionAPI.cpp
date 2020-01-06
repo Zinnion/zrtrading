@@ -1,27 +1,11 @@
-#include <Rcpp.h>
-using namespace Rcpp;
+#include "zinnionAPI.h"
 
-// This is a simple example of exporting a C++ function to R. You can
-// source this function into an R session using the Rcpp::sourceCpp
-// function (or via the Source button on the editor toolbar). Learn
-// more about Rcpp at:
-//
-//   http://www.rcpp.org/
-//   http://adv-r.had.co.nz/Rcpp.html
-//   http://gallery.rcpp.org/
-//
-
-// [[Rcpp::export]]
-NumericVector timesTwo(NumericVector x) {
-  return x * 2;
+std::vector<int> simulate_student() {
+  Student s = Student("bob", 10, true);
+  return s.GetFavoriteNumbers();
 }
 
-
-// You can include R code blocks in C++ files processed with sourceCpp
-// (useful for testing and development). The R code will be automatically
-// run after the compilation.
-//
-
-/*** R
-timesTwo(42)
-*/
+void test() {
+  cout << "mauro" << endl;
+  cout << add_int(1,3) << endl;
+}
